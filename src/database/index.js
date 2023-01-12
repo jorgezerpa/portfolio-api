@@ -18,7 +18,10 @@ class DBConnection {
             password: process.env.DB_PASS,
             database: process.env.DB_NAME,
             port: process.env.DB_PORT,
-          }, ()=>{console.log('conected')});
+          }, (err)=>{
+            if(err) console.log(err)
+            console.log('conected')
+        })
     }
 
     async list(table){
